@@ -46,7 +46,7 @@ const App = () => {
       role: "Operations Manager / Field Ops & Quality Lead",
       period: "May 2024 – Present",
       location: "Riyadh, Saudi Arabia",
-      logo: "/assets/hudhud-logo.png",
+      logo: "/assets/hudhud-logo.webp",
       highlights: [
         "Led the national effort to collect and update 550,000+ POIs across Saudi Arabia, ensuring market-leading data freshness.",
         "Directly lead a high-performance operations division of 3 Team Leads, 4 Supervisors, 25+ POI Reviewers, and 9 specialized field Surveyors.",
