@@ -381,9 +381,6 @@ const App = () => {
             <a href={`https://linkedin.com/in/${profile.linkedin}`} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors">
               <Linkedin className="w-6 h-6" />
             </a>
-            <a href={`https://${profile.website}`} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors">
-              <ExternalLink className="w-6 h-6" />
-            </a>
           </div>
           <p className="text-slate-400 text-sm">© 2026 {profile.name} • Built with React & Tailwind</p>
         </div>
