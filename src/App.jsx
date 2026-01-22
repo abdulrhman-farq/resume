@@ -62,7 +62,7 @@ const App = () => {
       role: "Founder",
       period: "Aug 2023 – Present",
       location: "Riyadh, Saudi Arabia",
-      logo: null,
+      logo: "/assets/farq-logo.svg",
       highlights: [
         "Launched KSA's first neutral price comparison platform for delivery and ride-sharing.",
         "Engineered real-time price aggregation engines and full-stack data strategy.",
