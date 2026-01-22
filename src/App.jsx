@@ -36,6 +36,7 @@ const App = () => {
     phone: "+966 563 333 463",
     linkedin: "abdulrhman-alnuqaydan-04595a392",
     website: "www.farq.sa",
+    photo: "/assets/profile-photo.jpg",
     summary: "Strategic Operations Leader and Tech Entrepreneur with over 7 years of experience building large-scale geospatial systems. Expert in the POI lifecycle, managing 120,000+ km of road surveys and updating over 550,000+ data points across KSA through AI automation and multi-layered team leadership."
   };
 
@@ -45,6 +46,7 @@ const App = () => {
       role: "Operations Manager / Field Ops & Quality Lead",
       period: "May 2024 – Present",
       location: "Riyadh, Saudi Arabia",
+      logo: "/assets/hudhud-logo.png",
       highlights: [
         "Led the national effort to collect and update 550,000+ POIs across Saudi Arabia, ensuring market-leading data freshness.",
         "Directly lead a high-performance operations division of 3 Team Leads, 4 Supervisors, 25+ POI Reviewers, and 9 specialized field Surveyors.",
@@ -60,6 +62,7 @@ const App = () => {
       role: "Founder",
       period: "Aug 2023 – Present",
       location: "Riyadh, Saudi Arabia",
+      logo: null,
       highlights: [
         "Launched KSA's first neutral price comparison platform for delivery and ride-sharing.",
         "Engineered real-time price aggregation engines and full-stack data strategy.",
@@ -72,6 +75,7 @@ const App = () => {
       role: "Quality Assurance Manager",
       period: "Jan 2023 – May 2024",
       location: "Riyadh, Saudi Arabia",
+      logo: "/assets/balady-logo.png",
       highlights: [
         "Managed more than 120,000 km of road surveys and street view data collection across the Kingdom.",
         "Planned and managed large-scale operations for both Field Surveyors and Road Surveyors across Riyadh.",
@@ -85,6 +89,7 @@ const App = () => {
       role: "Operations Team Lead (Dubai Malls Project)",
       period: "Jan 2022 – Jan 2023",
       location: "Dubai, UAE (Hybrid)",
+      logo: "/assets/urbi-logo.png",
       highlights: [
         "Led the specialized Dubai Malls Project, focusing on high-density POI collection and indoor mapping for major retail hubs.",
         "Supervised UAE-wide survey teams, improving field efficiency by 15% through structured task assignment and real-time monitoring."
@@ -96,6 +101,7 @@ const App = () => {
       role: "Data Specialist",
       period: "Jul 2017 – Jan 2020",
       location: "San Francisco, CA (Hybrid)",
+      logo: "/assets/google-maps-logo.png",
       highlights: [
         "High-level POI validation and quality improvement for global datasets.",
         "Expertise in core mapping workflows and geospatial analysis best practices."
@@ -140,10 +146,24 @@ const App = () => {
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 pb-12">
       {/* Header Section */}
       <header className="bg-white border-b border-slate-200 sticky top-0 z-30">
-        <div className="max-w-6xl mx-auto px-6 py-6 md:flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-slate-900">{profile.name}</h1>
-            <p className="text-blue-600 font-medium text-lg mt-1">{profile.title}</p>
+        <div className="max-w-6xl mx-auto px-6 py-6 md:flex items-center justify-between gap-6">
+          <div className="flex items-center gap-6 flex-1">
+            {profile.photo && (
+              <div className="flex-shrink-0">
+                <img 
+                  src={profile.photo} 
+                  alt={profile.name}
+                  className="w-24 h-24 rounded-full object-cover border-4 border-blue-50 shadow-sm"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              </div>
+            )}
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-slate-900">{profile.name}</h1>
+              <p className="text-blue-600 font-medium text-lg mt-1">{profile.title}</p>
+            </div>
           </div>
           <div className="mt-4 md:mt-0 flex flex-wrap gap-4 text-sm text-slate-600">
             <a href={`mailto:${profile.email}`} className="flex items-center gap-1 hover:text-blue-600 transition-colors">
@@ -209,9 +229,23 @@ const App = () => {
                   <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden transition-all hover:border-blue-200 group">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex gap-4 items-center">
-                        <div className="p-3 bg-slate-50 rounded-xl group-hover:bg-blue-50 transition-colors">
-                          {exp.icon}
-                        </div>
+                        {exp.logo ? (
+                          <div className="p-3 bg-slate-50 rounded-xl group-hover:bg-blue-50 transition-colors flex items-center justify-center w-14 h-14">
+                            <img 
+                              src={exp.logo} 
+                              alt={exp.company}
+                              className="max-w-full max-h-full object-contain"
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                                e.target.parentElement.innerHTML = exp.icon;
+                              }}
+                            />
+                          </div>
+                        ) : (
+                          <div className="p-3 bg-slate-50 rounded-xl group-hover:bg-blue-50 transition-colors">
+                            {exp.icon}
+                          </div>
+                        )}
                         <div>
                           <h3 className="font-bold text-lg text-slate-900">{exp.role}</h3>
                           <p className="text-slate-500 font-medium flex items-center gap-2">
